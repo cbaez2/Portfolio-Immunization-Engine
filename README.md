@@ -15,11 +15,8 @@ the program computes the **two asset cashflows** required to achieve either:
 - **Full Immunization**, or
 - **Redington Immunization**.
 
-The engine also supports **rebalancing** after:
-- a change in interest rate, and/or
-- a change of time.
+The engine supports **rebalancing** after a given change in interest rate to i_n and/or time to t_n, and for Redington immunization it computes a **finite interval of solvency**, the set of interest rates for which the surplus remains non-negative.
 
-For **Redington Immunization**, the engine additionally computes a **finite interval of solvency**, a set of interest rates for which the surplus remains non-negative.
 ---
 
 ## Features
@@ -85,7 +82,7 @@ cf_y = $1,196.9078 at t = 6 (PV₀ = $105.0783 @ iₙ)
 
 S(i) ≥ 0  ∀  i ∈ (0, 1.01475833214883]
 
-# How to Run
+## How to Run
 
 1. Open `main.py`
 2. Set:
