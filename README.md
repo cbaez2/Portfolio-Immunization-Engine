@@ -5,7 +5,7 @@
 This project is a **deterministic Asset–Liability Immunization engine** implemented in Python using **SymPy**.
 
 Given:
-- an interes rate i0
+- a base interest rate i0
 - a fixed set of liability cashflow amounts,
 - corresponding liability times, and
 - exactly **two asset times**,
@@ -17,10 +17,9 @@ the program computes the **two asset cashflows** required to achieve either:
 
 The engine also supports **rebalancing** after:
 - a change in interest rate, and/or
-- the passage of time.
+- a change of time.
 
-For **Redington Immunization**, the engine additionally computes a **finite interval of solvency** over which the surplus function remains non-negative.
-
+For **Redington Immunization**, the engine additionally computes a **finite interval of solvency**, a set of interest rates for which the surplus remains non-negative.
 ---
 
 ## Features
@@ -47,114 +46,6 @@ For **Redington Immunization**, the engine additionally computes a **finite inte
 - Computes a **finite interval of solvency** directly from the surplus function
 
 ---
-
-# Asset–Liability Immunization Engine (Python)
-
-## Overview
-
-This project is a **deterministic Asset–Liability Immunization engine** implemented in Python using **SymPy**.
-
-Given:
-- a fixed set of liability cashflow amounts,
-- corresponding liability times, and
-- exactly **two asset times**,
-
-the program computes the **two asset cashflows** required to achieve either:
-
-- **Full Immunization**, or
-- **Redington Immunization**.
-
-The engine also supports **rebalancing** after:
-- a change in interest rate, and/or
-- the passage of time.
-
-For **Redington Immunization**, the engine additionally computes a **finite interval of solvency** over which the surplus function remains non-negative.
-
-This project is a **computational tool**, not a proof system.
-
----
-
-## Features
-
-### Full Immunization
-
-- Matches:
-  - Present Value
-  - First derivative (duration)
-- Enforces classical ALA constraints
-- Computes exact asset cashflows symbolically
-- Supports rebalancing at arbitrary time `t_n` and interest rate `i_n`
-
----
-
-### Redington Immunization
-
-- Matches:
-  - Present Value
-  - First derivative
-  - Positive second derivative (convexity)
-- Allows liabilities outside the asset interval
-- Supports rebalancing at arbitrary time `t_n` and interest rate `i_n`
-- Computes a **finite interval of solvency** directly from the surplus function
-
----
-
-## File Descriptions
-
-### `main.py`
-
-- Central control file
-- User specifies:
-  - Immunization type (`FULL` or `REDINGTON`)
-  - Base interest rate `i0`
-  - Asset times
-  - Liability amounts and times
-  - Rebalancing time `t_n` and rate `i_n`
-- Executes the full pipeline and prints results
-- No runtime user input is required
-
----
-
-### `full_imm.py`
-
-- Computes the two asset cashflows required to achieve **full immunization**
-- Solves for present value and duration matching
-
----
-
-### `full_rebalancer.py`
-
-- Rebalances a fully immunized portfolio after:
-  - a change in interest rate, and/or
-  - the passage of time
-- Correctly handles cases where one asset cashflow has already been received
-
----
-
-### `red_imm.py`
-
-- Computes the two asset cashflows required to achieve **Redington immunization**
-- Enforces:
-  - present value matching,
-  - first derivative matching,
-  - positive second derivative at `i0`
-
----
-
-### `red_rebalancer.py`
-
-- Rebalances a Redington-immunized portfolio after:
-  - a change in interest rate, and/or
-  - the passage of time
-- Preserves Redington conditions locally
-
----
-
-### `interval_finder.py`
-
-- Analyzes the Redington surplus function
-- Computes the **interval of solvency**:
-  - the set of interest rates for which the surplus remains non-negative
 
 ## Example Output
 
@@ -194,4 +85,23 @@ cf_y = $1,196.9078 at t = 6 (PV₀ = $105.0783 @ iₙ)
 
 S(i) ≥ 0  ∀  i ∈ (0, 1.01475833214883]
 
+# How to Run
 
+1. Open `main.py`
+2. Set:
+   - `IMMUNIZATION_TYPE`
+   - `i0`, `liabilities`, `l_times`, `a_times`
+   - Rebalancing parameters `t_n` and `i_n`
+3. Run:
+   
+##  Author
+
+**Christopher Baez**  
+Finance & Risk Management Major | Future Actuary  
+Email: [chris_baez18@hotmail.com]  
+
+---
+
+## License
+
+This project is licensed under the **MIT License** — you are free to use, modify, and distribute it with proper attribution.
