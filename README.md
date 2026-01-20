@@ -44,14 +44,20 @@ The engine supports **rebalancing** after a given change in interest rate to i_n
 
 ---
 
+## Requirements
+
+- Python 3.10+
+- sympy
+
 ## How to Run
 
-1. Open `main.py`
-2. Set:
-   - `IMMUNIZATION_TYPE`
-   - `i0`, `liabilities`, `l_times`, `a_times`
-   - Rebalancing parameters `t_n` and `i_n`
+1. Open `config.py`
+2. Set the following parameters:
+   - `IMMUNIZATION_TYPE` (`"full"` or `"redington"`)
+   - Base model inputs: `i0`, `liabilities`, `l_times`, `a_times`
+   - Rebalancing inputs: `t_n`, `i_n`
 3. Run:
+
    
 ##  Author
 
