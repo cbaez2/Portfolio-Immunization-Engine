@@ -44,34 +44,6 @@ The engine supports **rebalancing** after a given change in interest rate to i_n
 
 ---
 
-## Example Output
-
-=== REDINGTON IMMUNIZATION ===
-
-Redington immunization succeeded at i₀ = 0.1000
-
-Liabilities:
-  amounts = [1000, 1000, 1000, 1000, 1000]
-  times   = [0, 1, 2, 3, 4]
-
-Required asset cashflows:
-  cf_x = $3,843.6664 at t = 1  (PV₀ = $3,494.2422 at i₀)
-  cf_y = $1,196.9078 at t = 6  (PV₀ = $675.6232 at i₀)
-
-
---- REBALANCING ---
-
-The original surplus function evaluated at iₙ = 0.5000 is:
-$62.5843
-
-To be Redington immunized at iₙ = 0.5000 and t = 0, you need:
-cf_x = $3,843.6664 at t = 1 (PV₀ = $2,562.4443 @ iₙ)
-cf_y = $1,196.9078 at t = 6 (PV₀ = $105.0783 @ iₙ)
-
---- INTERVAL OF SOLVENCY ---
-
-S(i) ≥ 0  ∀  i ∈ (0, 1.01475833214883]
-
 ## How to Run
 
 1. Open `main.py`
