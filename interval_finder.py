@@ -20,7 +20,7 @@ def interval_finder(S_i,i0):
     n_roots = [root.evalf() for root in s_roots if root.is_real]
 
     #filtering roots
-    roots_greater_than_i0 = sorted(list(x for x in n_roots if x > i0 and x >0))
+    roots_greater_than_i0 = sorted(list(x for x in n_roots if x > i0))
     roots_less_than_i0 = sorted(list(x for x in n_roots if x < i0 and x>0),reverse=True)
 
     #by default assume we are solvent for all i>0
@@ -28,22 +28,14 @@ def interval_finder(S_i,i0):
     i_l = 0
 
     #finding a root "i_r" to the right of i0 such that S(i_r) = 0 and S'(i_r) <0
-    #note we are finding roots that are greatet than i0 by default
+    #note we are finding roots that are greater than i0 by default
 
     for root in roots_greater_than_i0:
         if sp.diff(S_i,i,1).subs(i,root)<0:
                 i_r = root
                 break
 
-    #finding a root "i_l" to the left of i0 such that S(i_l) = 0 and S'(i_l) <0
-    #note this is because there is a vertical asymtote at i=-1
-
-    for root in roots_less_than_i0:
-        if sp.diff(S_i, i, 1).subs(i, root) < 0:
-            i_l = root
-            break
-
-    #finding a root "i_l" to the left of i0 such that S(i_l) = = and S'(i_l) >0
+    #finding a root "i_l" to the left of i0 such that S(i_l) = 0 and S'(i_l) >0
     #note we are finding roots that are less than i0 by defualt
 
     for root in roots_less_than_i0:
