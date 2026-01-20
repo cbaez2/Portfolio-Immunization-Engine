@@ -100,8 +100,6 @@ def new_cfs(i_n, t_n):
         return (
             f"The original surplus function evaluated at iₙ = {rate(i_n)} is:\n"
             f"${r4(full_result['s(i)'].subs(i, i_n))}\n\n"
-            f"The original surplus function evaluated at iₙ = {rate(i_n)} is:\n"
-            f"${r4(full_result['s(i)'].subs(i, i_n))}\n\n"
             f"Could not find cf_x at t = {a_times[0]} and cf_y at t= {a_times[1]} that satisfy full immunization "
             f"at t = {t_n} and iₙ = {rate(i_n)}."
         )
@@ -142,6 +140,8 @@ def new_cfs(i_n, t_n):
             )
 
         return (
+            f"The original surplus function evaluated at iₙ = {rate(i_n)} is:\n"
+            f"${r4(full_result['s(i)'].subs(i, i_n))}\n\n"
             f"Could not find a cf_y at t = {a_times[1]} that satisfies full immunization "
             f"at t = {t_n} and iₙ = {rate(i_n)}, given that "
             f"{money(full_result['cf_x'])} was already received at t = {a_times[0]}."
