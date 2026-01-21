@@ -8,7 +8,9 @@ def red_immunization_two_cf(i0, a_times, liabilities, l_times):
     assert len(set(l_times)) == len(l_times), "Multiple liabilities at the same time are not allowed"  # this avoids cases like l_times=[2,2] since set(l_times) returns unique elements
     assert len(liabilities) == len(l_times), "The amount of liabilities and the liabilities times need to be equal"
     assert len(a_times) == 2, "Only two cashflows are allowed"
-    assert i0 > 0
+    assert all(t >= 0 for t in a_times), "Asset times must be ≥ 0 at t=0"
+    assert all(t >= 0 for t in l_times), "Liability times must be ≥ 0 at t=0"
+    assert i0 > 0, "Base interest rate must be positive"
     #defining mathematical variables and PV_A and PV_L functions of i
 
     i0= sp.nsimplify(i0) #saving exact value of i0
