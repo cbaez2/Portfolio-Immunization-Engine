@@ -105,7 +105,7 @@ From the terminal run:
 ```bash
 pip install -r requirements.txt
 ```
-## 5. Configure Model Inputs
+## 5. Configure Model Inputs (optional)
 
 All user-editable inputs are controlled through **`config.py`**.
 
@@ -125,10 +125,8 @@ From the terminal, run:
 
 ```bash
 python main.py
-
 ```
-# You must close the image file to re-run the engine.
----
+You must close the image file to re-run the model.
   
 ##  Author
 
