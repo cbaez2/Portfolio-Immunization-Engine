@@ -18,7 +18,7 @@ IMMUNIZATION_TYPE = "redington"
 # --------------------------------------------------
 # i0 : interest rate at which the asset portfolio is immunized
 # Domain: i0 ≥ 0
-i0 = 0.05
+i0 = 0.20
 
 
 # --------------------------------------------------
