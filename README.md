@@ -10,7 +10,7 @@ It computes **two asset cashflows**, `cf_x` and `cf_y`, that satisfy either **Fu
 - a base interest rate `i0` at which the portfolio is immunized,
 - a set of liability cashflow amounts,
 - corresponding liability times, and
-- exactly **two asset times**.
+- exactly **two asset times** for `cf_x` and `cf_y`.
 
 For **Redington immunization only**, the engine additionally computes an **interval of solvency**, defined as the set of interest rates for which the portfolio surplus remains non-negative.
 
