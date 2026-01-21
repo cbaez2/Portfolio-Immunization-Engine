@@ -57,18 +57,77 @@ The project also includes a **graphical representation of the surplus function**
 pip install -r requirements.txt
 
 ```
-## How to Run
+# How to Run the Project (Quick Start – Windows)
 
-1. Open `config.py` and set:
-   - `IMMUNIZATION_TYPE` (`"full"` or `"redington"`)
-   - Base inputs: `i0`, `liabilities`, `l_times`, `a_times`
-   - Rebalancing inputs (optional): `i_n`, `t_n`
+This guide explains how to run the project locally using **Windows** with minimal setup.
 
-2. Run the program from the project root:
+---
+
+## 1. Install Python (Required)
+
+Before running the project, Python must be installed.
+
+1. Go to **https://www.python.org**
+2. Download **Python 3.x** for Windows.
+3. During installation, **check the box labeled “Add Python to PATH”**.
+4. Complete the installation.
+
+Verify Python is installed by opening a terminal and running:
+
 ```bash
-
-python main.py
+python --version
 ```
+
+## 2. Download the Project
+
+1. Go to the GitHub repository.
+2. Click the green **`<> Code`** button.
+3. Select **Download ZIP**.
+4. Extract the ZIP file to any location on your computer (e.g. `Documents`).
+
+---
+
+## 3. Open the Project in the Terminal
+
+1. Open the extracted project folder.
+2. Right-click on an empty area inside the folder.
+3. Select **“Open in Terminal”** or **“Open Command Prompt here”**  
+   (the wording depends on your Windows version).
+
+A terminal window should now open **at the project directory**.
+
+---
+
+## 4. (One-Time) Install Dependencies
+
+From the terminal run:
+
+```bash
+pip install -r requirements.txt
+```
+## 5. Configure Model Inputs
+
+All user-editable inputs are controlled through **`config.py`**.
+
+1. Open `config.py` using any text editor (Notepad, VS Code, etc.).
+2. Modify the parameters, including:
+   - immunization type (Full or Redington),
+   - base interest rate,
+   - asset times,
+   - liability amounts and their corresponding times.
+3. Save the file after making changes.
+
+No other files need to be edited.
+
+## 6. Run the Program
+
+From the terminal, run:
+
+```bash
+python main.py
+
+```
+# You must close the image file to re-run the engine.
 ---
   
 ##  Author
