@@ -47,10 +47,10 @@ The project also includes a **graphical representation of the surplus function**
 
 ## Requirements
 - Python 3.10+
-- sympy
+- matplotlib
 - numpy
 - scipy
-- matplotlib
+- sympy
 
 ### Install dependencies
 ```bash
