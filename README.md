@@ -42,6 +42,16 @@ The project also includes a **graphical representation of the surplus function**
 - Allows general asset–liability cashflow structures.
 - Recalculates asset cashflows required to re-immunize the portfolio under changes in interest rate `i_n` and time `t_n`, and reports the resulting surplus at `i_n`.
 - Computes a **finite interval of solvency** directly from the surplus function.
+- 
+## Assumptions and Scope
+
+This project operates under the classical assumptions of immunization theory:
+
+- The yield curve is assumed to be **flat**.
+- Only **parallel shifts** in the yield curve are permitted.
+- All computations are performed within a **deterministic** framework.
+
+The asset cashflows produced by the engine are **theoretical constructs** and may not correspond to securities that exist or are tradable in real markets. Accordingly, this project should be viewed as an exercise in **theoretical financial mathematics**, rather than a practical portfolio construction tool.
 
 ---
 
