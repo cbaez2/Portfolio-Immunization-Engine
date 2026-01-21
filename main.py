@@ -45,30 +45,32 @@ def main():
 
             pv_x_0 = pv(cf_x, a_times[0], i0)
             pv_y_0 = pv(cf_y, a_times[1], i0)
+            pv_total_0 = pv_x_0 + pv_y_0   # ← ADDED
 
             print(
-                f"Full immunization succeeded at i₀ = {rate(i0)}\n\n"
+                f"Full immunization succeeded at t = 0 under i₀ = {rate(i0)}.\n\n"
                 f"Liabilities:\n"
                 f"  amounts = {liabilities}\n"
                 f"  times   = {l_times}\n\n"
                 f"Required asset cashflows:\n"
                 f"  cf_x = {money(cf_x)} at t = {a_times[0]}  (PV₀ = {money(pv_x_0)} at i₀)\n"
                 f"  cf_y = {money(cf_y)} at t = {a_times[1]}  (PV₀ = {money(pv_y_0)} at i₀)\n"
+                f"  TOTAL PV₀ (assets) = {money(pv_total_0)} at i₀\n"
             )
 
-            print("\n--- REBALANCING ---\n")
+            print("\n--- RE-IMMUNIZATION ---\n")
             print(new_cfs(i_n=i_n, t_n=t_n))
 
         if not full_result:
             print(
-                f"Full immunization failed.\n"
+                f"Full immunization failed at t = 0 under i₀ = {rate(i0)}.\n"
                 f"Liabilities: {liabilities} at times {l_times}\n"
                 f"Asset times: {a_times}"
             )
 
-    # ===============================
-    # REDINGTON IMMUNIZATION PIPELINE
-    # ===============================
+# ===============================
+# REDINGTON IMMUNIZATION PIPELINE
+# ===============================
 
     elif IMMUNIZATION_TYPE == "redington":
         from red_rebalancer import new_cfs, red_result
@@ -82,26 +84,27 @@ def main():
 
             pv_x_0 = pv(cf_x, a_times[0], i0)
             pv_y_0 = pv(cf_y, a_times[1], i0)
+            pv_total_0 = pv_x_0 + pv_y_0   # ← ADDED
 
             print(
-                f"Redington immunization succeeded at i₀ = {rate(i0)}\n\n"
+                f"Redington immunization succeeded at t = 0 under i₀ = {rate(i0)}.\n\n"
                 f"Liabilities:\n"
                 f"  amounts = {liabilities}\n"
                 f"  times   = {l_times}\n\n"
                 f"Required asset cashflows:\n"
                 f"  cf_x = {money(cf_x)} at t = {a_times[0]}  (PV₀ = {money(pv_x_0)} at i₀)\n"
                 f"  cf_y = {money(cf_y)} at t = {a_times[1]}  (PV₀ = {money(pv_y_0)} at i₀)\n"
+                f"  TOTAL PV₀ (assets) = {money(pv_total_0)} at i₀\n"
             )
 
-            print("\n--- REBALANCING ---\n")
+            print("\n--- RE-IMMUNIZATION ---\n")
             print(new_cfs(i_n=i_n, t_n=t_n))
-
 
             print("\n--- INTERVAL OF SOLVENCY ---\n")
             interval_result = interval_finder(
-                 S_i=red_result["s(i)"],
+                
                 i0=red_result["i0"]
-                )
+            )
 
             iL, iR = interval_result
 
@@ -114,10 +117,9 @@ def main():
             elif iL != 0 and iR == float("inf"):
                 print(f"S(i) ≥ 0  ∀  i ∈ ({iL}, ∞)]")
 
-
         if not red_result:
             print(
-                f"Redington immunization failed.\n"
+                f"Redington immunization failed at t = 0 under i₀ = {rate(i0)}.\n"
                 f"Liabilities: {liabilities} at times {l_times}\n"
                 f"Asset times: {a_times}"
             )
