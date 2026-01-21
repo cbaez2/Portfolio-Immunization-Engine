@@ -2,21 +2,16 @@
 
 ## Overview
 
-This project is a **deterministic Asset–Liability Immunization engine** implemented in Python using **SymPy**.
+This project is a **deterministic Portofolio Immunization engine** implemented in Python using **SymPy**. that computes two asset cashflows satisfying full or Redington immunization conditions,
 
-Given:
+given:
 - a base interest rate i0
+- exactly **two asset times**,
 - a fixed set of liability cashflow amounts,
 - corresponding liability times, and
-- exactly **two asset times**,
 
-the program computes the **two asset cashflows** required to achieve either:
-
-- **Full Immunization**, or
-- **Redington Immunization**.
-
-The engine supports **rebalancing** following a change in interest rate to `i_n` and/or time to `t_n`.  
 For Redington immunization, it additionally computes an **interval of solvency**, defined as the set of interest rates for which the surplus remains non-negative.
+The engine recalculates asset cashflows needed to re-immunize the portflio given a change interest rate to `i_n` and time to `t_n`.  
 
 ---
 
@@ -28,7 +23,6 @@ For Redington immunization, it additionally computes an **interval of solvency**
   - Present Value
   - First derivative (duration)
 - Enforces classical ALA constraints
-- Computes exact asset cashflows symbolically
 - Supports rebalancing at arbitrary time `t_n` and interest rate `i_n`
 
 ---
