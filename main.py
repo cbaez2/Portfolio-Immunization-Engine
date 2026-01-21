@@ -61,14 +61,29 @@ def main():
             print("\n--- RE-IMMUNIZATION ---\n")
             print(new_cfs(i_n=i_n, t_n=t_n))
 
-        if not full_result:
+            from plotting import plot_surplus
+            def S_full(i):
+                if i <= -1:
+                    return float("nan")
+                v = 1.0 / (1.0 + i)
+                PV_A = cf_x * v ** a_times[0] + cf_y * v ** a_times[1]
+                PV_L = sum(L * v ** t for L, t in zip(liabilities, l_times))
+                return PV_A - PV_L
+
+            plot_surplus(
+                S_full,
+                title="Full Immunization Surplus S(i)"
+            )
+
+        if not full_result:   #No need to show graph
             print(
                 f"Full immunization failed at t = 0 under i₀ = {rate(i0)}.\n"
                 f"Liabilities: {liabilities} at times {l_times}\n"
                 f"Asset times: {a_times}"
             )
 
-# ===============================
+
+    # ===============================
 # REDINGTON IMMUNIZATION PIPELINE
 # ===============================
 
@@ -117,7 +132,25 @@ def main():
             elif iL != 0 and iR == float("inf"):
                 print(f"S(i) ≥ 0  ∀  i ∈ ({iL}, ∞)]")
 
-        if not red_result:
+            from plotting import plot_surplus
+
+            def S_red(i):
+                if i <= -1:
+                    return float("nan")
+
+                v = 1 / (1 + i)
+
+                PV_A = cf_x * v ** a_times[0] + cf_y * v ** a_times[1]
+                PV_L = sum(L * v ** t for L, t in zip(liabilities, l_times))
+
+                return PV_A - PV_L
+
+            plot_surplus(
+                S_red,
+                title="Redington Surplus S(i)"
+            )
+
+        if not red_result: #no need to show graph
             print(
                 f"Redington immunization failed at t = 0 under i₀ = {rate(i0)}.\n"
                 f"Liabilities: {liabilities} at times {l_times}\n"
