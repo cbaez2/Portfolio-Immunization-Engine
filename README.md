@@ -2,7 +2,9 @@
 
 ## Overview
 
-This project is a **deterministic Portfolio Immunization Engine** implemented in Python using **SymPy**. It computes **two asset cashflows**, `cf_x` and `cf_y`, that satisfy either **Full** or **Redington immunization conditions** at time `t = 0`, given:
+This project is a **deterministic Portfolio Immunization Engine** implemented in Python.
+
+It computes **two asset cashflows**, `cf_x` and `cf_y`, that satisfy either **Full** or **Redington immunization conditions** at time `t = 0`, given:
 
 - a user-selected immunization type (Full or Redington),
 - a base interest rate `i0` at which the portfolio is immunized,
