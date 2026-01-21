@@ -10,7 +10,7 @@ red_result = red_immunization_two_cf(
     l_times=l_times
 )
 
-# 🔴 FIX 1: force numeric coefficients ONCE
+#  FIX 1: force numeric coefficients ONCE
 cf_x = float(red_result["cf_x"])
 cf_y = float(red_result["cf_y"])
 
@@ -65,7 +65,7 @@ def find_roots(i_min=0.0, i_max=5.0, N=4000):
 
 
 # ===============================
-# INTERVAL OF SOLVENCY (YOUR LOGIC)
+# INTERVAL OF SOLVENCY (MY LOGIC)
 # ===============================
 
 def interval_finder(i0):
