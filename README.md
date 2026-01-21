@@ -1,18 +1,19 @@
-# Portfolio Immunization Engine (Python)
+# Portfolio Immunization Engine
 
 ## Overview
 
-This project is a **deterministic Portofolio Immunization engine** implemented in Python using **SymPy** that finds two asset cashflows, `cf_x` and `cf_y`,  satisfying either full or Redington immunization conditions at `t=0` given:
+This project is a **deterministic Portfolio Immunization Engine** implemented in Python using **SymPy**. It computes **two asset cashflows**, `cf_x` and `cf_y`, that satisfy either **Full** or **Redington immunization conditions** at time `t = 0`, given:
 
-- an immunization type (Redington or Full),
-- a base interest rate i0 to immunize the portfolio,
+- a user-selected immunization type (Full or Redington),
+- a base interest rate `i0` at which the portfolio is immunized,
 - a set of liability cashflow amounts,
 - corresponding liability times, and
 - exactly **two asset times**.
 
-For Redington immunization, it additionally computes an **interval of solvency**, defined as the set of interest rates for which the surplus remains non-negative.
-For both immunization types, the engine recalculates asset cashflows needed to re-immunize the portflio given a change interest rate to `i_n` and time to `t_n` as well as the surplus at `i_n`.
-Present values of the asset cashflows will also be given at `t=0` under the appropiate interest rate `i_n` or `i_n`.
+For **Redington immunization only**, the engine additionally computes an **interval of solvency**, defined as the set of interest rates for which the portfolio surplus remains non-negative.
+
+For **both immunization types**, the engine supports **rebalancing under a change in interest rate to `i_n` and time to `t_n`**, recalculating the asset cashflows required to re-immunize the portfolio and reporting the resulting surplus at `i_n`.  
+The **present values of the asset cashflows at `t = 0`** are also reported under their corresponding interest rates (`i_0` or `i_n`).
 
 ---
 
@@ -20,22 +21,22 @@ Present values of the asset cashflows will also be given at `t=0` under the appr
 
 ### Full Immunization
 
-- Matches asssets and liabilities:
-  - Present Value
-  - First derivative (duration)
-- Enforces ALA cashflow structure.
-- Recalculates asset cashflows needed to re-immunize the portflio given a change interest rate to `i_n` and time to `t_n` as well as the surplus at `i_n`
+- Constructs asset cashflows that match liabilities satisfying the **Full immunization conditions**:
+  - Present Value matching
+  - Duration matching
+  - **ALA (Asset–Liability–Asset)** cashflow structure.
+- Recalculates asset cashflows required to re-immunize the portfolio under changes in interest rate `i_n` and time `t_n`, and reports the resulting surplus at `i_n`.
 
 ---
 
 ### Redington Immunization
 
-- Matches asssets and liabilities:
-  - Present Value
-  - Duration
-- Positive second derivative of the surplus function `S''(i)>0`
-- Allows any type of asset and liability structure.
-- Recalculates asset cashflows needed to re-immunize the portflio given a change interest rate to `i_n` and time to `t_n` as well as the surplus at `i_n`
+- Constructs asset cashflows satisfying the **Redington immunization conditions**:
+  - Present Value matching
+  - Duration matching
+  - Positive second derivative of the surplus function, `S''(i) > 0`
+- Allows general asset–liability cashflow structures.
+- Recalculates asset cashflows required to re-immunize the portfolio under changes in interest rate `i_n` and time `t_n`, and reports the resulting surplus at `i_n`.
 - Computes a **finite interval of solvency** directly from the surplus function.
 
 ---
