@@ -126,7 +126,7 @@ From the terminal, run:
 ```bash
 python main.py
 ```
-You must close the image file to re-run the model.
+Close the plot window before re-running the model.
 
 ## Feedback, Issues, and Contributions
 
