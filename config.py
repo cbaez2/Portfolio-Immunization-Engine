@@ -10,7 +10,7 @@
 # Choose immunization method:
 # "full"      → PV + Duration matching + ALA cashflow structure
 # "redington" → PV + Duration + asset convexity > liability convexity
-IMMUNIZATION_TYPE = "full"
+IMMUNIZATION_TYPE = "redington"
 
 
 # --------------------------------------------------
