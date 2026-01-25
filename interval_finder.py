@@ -11,9 +11,8 @@ red_result = red_immunization_two_cf(
 )
 
 #  FIX 1: force numeric coefficients ONCE IF REDINGTON SUCEEDS
-if red_result:
-    cf_x = float(red_result["cf_x"])
-    cf_y = float(red_result["cf_y"])
+cf_x = float(red_result["cf_x"])
+cf_y = float(red_result["cf_y"])
 
 
 
